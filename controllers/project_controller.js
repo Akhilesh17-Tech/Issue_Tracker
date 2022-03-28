@@ -5,7 +5,7 @@ const Issue = require("../models/issue");
 // rendering create project page
 module.exports.createproject = function (req, res) {
   return res.render("create_project", {
-    title: "IssueTraker | create_project",
+    title: "IssueTracker | Create Project",
   });
 };
 
@@ -40,7 +40,7 @@ module.exports.project = function (req, res) {
         return;
       }
       return res.render("project", {
-        title: "IssueTraker | Projects",
+        title: "IssueTracker | Project Details",
         project: project,
       });
     });
@@ -56,7 +56,7 @@ module.exports.createIssue = function (req, res) {
       }
       // console.log(project);
       return res.render("create_issue", {
-        title: "IssueTraker | create_issue",
+        title: "IssueTracker | Create Issue",
         project: project,
       });
     });
