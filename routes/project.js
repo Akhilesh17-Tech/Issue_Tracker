@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const projectController = require("../controllers/project_controller");
-
+// routing 
 router.get("/create_project", projectController.createproject);
 router.post("/create", projectController.create);
 router.get("/project/:id", projectController.project);

@@ -1,12 +1,15 @@
 const Project = require("../models/project");
 const Issue = require("../models/issue");
 
+
+// rendering create project page
 module.exports.createproject = function (req, res) {
   return res.render("create_project", {
     title: "IssueTraker | create_project",
   });
 };
 
+// creating project in database
 module.exports.create = function (req, res) {
   let project = Project.create(
     {
@@ -25,6 +28,7 @@ module.exports.create = function (req, res) {
   return res.redirect("back");
 };
 
+// project details controller
 module.exports.project = function (req, res) {
   Project.findById(req.params.id)
     .populate("issue")
@@ -35,7 +39,6 @@ module.exports.project = function (req, res) {
         console.log(err);
         return;
       }
-
       return res.render("project", {
         title: "IssueTraker | Projects",
         project: project,
@@ -43,6 +46,7 @@ module.exports.project = function (req, res) {
     });
 };
 
+// rendering createIssue page with passing id for creating issue on reffered project
 module.exports.createIssue = function (req, res) {
   Project.findById(req.params.id)
     .populate("issue")
@@ -58,6 +62,7 @@ module.exports.createIssue = function (req, res) {
     });
 };
 
+// for create issue report on any project
 module.exports.projectIssue = async function (req, res) {
   try {
     let project = await Project.findById(req.body.project);
@@ -74,7 +79,7 @@ module.exports.projectIssue = async function (req, res) {
       project.issue.push(issue);
       project.save();
 
-      req.flash("success", "issue created!");
+      req.flash("success", "Issue report created!");
       res.redirect("back");
     }
   } catch (err) {

@@ -1,5 +1,5 @@
+// schema for issue report on project
 const mongoose = require("mongoose");
-
 const issueSchema = new mongoose.Schema(
   {
     title: {
