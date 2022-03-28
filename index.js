@@ -27,7 +27,8 @@ app.use(
       maxAge: 1000 * 60 * 100,
     },
     store: MongoStore.create({
-      mongoUrl: "mongodb://localhost/issue_tracker",
+      mongoUrl:
+        "mongodb+srv://akhi123:1234@issue-tracker.fu44g.mongodb.net/issueTracker?retryWrites=true&w=majority",
       autoRemove: "disabled",
     }),
   })

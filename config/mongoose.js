@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/issue_tracker");
+mongoose.connect(
+  "mongodb+srv://akhi123:1234@issue-tracker.fu44g.mongodb.net/issueTracker?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const db = mongoose.connection;
 
