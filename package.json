@@ -4,7 +4,6 @@
   "description": "issue tracker for tracking projects bugs and issues",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "akhilesh",
