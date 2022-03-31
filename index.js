@@ -21,15 +21,14 @@ app.use(
   session({
     name: "issuetracker",
     // TODO change the secret before deployment
-    secret: "akhileshkushwah",
+    secret: `${process.env.SECRET_KEY}`,
     saveUninitialized: false,
     resave: false,
     cookie: {
       maxAge: 1000 * 60 * 100,
     },
     store: MongoStore.create({
-      mongoUrl:
-        "mongodb+srv://akhi123:1234@issue-tracker.fu44g.mongodb.net/issueTracker?retryWrites=true&w=majority",
+      mongoUrl: `mongodb+srv://akhi123:${process.env.DATABASE_PASS}@issue-tracker.fu44g.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`,
       autoRemove: "disabled",
     }),
   })

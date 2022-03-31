@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 mongoose.connect(
-  "mongodb+srv://akhi123:1234@issue-tracker.fu44g.mongodb.net/issueTracker?retryWrites=true&w=majority",
+  `mongodb+srv://akhi123:${process.env.DATABASE_PASS}@issue-tracker.fu44g.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
